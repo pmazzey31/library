@@ -1,2 +1,2 @@
 # library
-This is a simple library project that allows users to keep track of their books. It is made using HTML, CSS, and JavaScript.
+This is a simple library project that allows users to keep track of their books. It is made using HTML, CSS, and JavaScript. The user can add new books to their library by entering the book's title, author, number of pages, and whether or not it has been read. The user can also delete books from their library if they no longer want to track them. Each book is represented as an item in the library and displays the relevant information about the book, including the title, author, number of pages, and read status. This is a great tool for anyone looking to keep track of their reading and organize their books.
