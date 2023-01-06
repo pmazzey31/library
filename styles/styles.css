@@ -1,6 +1,7 @@
 body {
     width: 100vw;
     height: 100vh;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .header_background{
@@ -28,7 +29,6 @@ body {
     text-decoration: none;
     padding-right: 50px;
     color: white;
-    font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     font-size: 18px;
 }
@@ -65,7 +65,6 @@ body {
 }
 
 .books-count_text {
-    font-family: 'Montserrat', sans-serif;
     color: white;
     font-weight: 500;
     font-size: 16px;
@@ -111,12 +110,165 @@ body {
 }
 
 .book {
-    background-color: aqua;
-    width: 100%;
+    background: #e9e9e9;
     height: 200px;
     border-radius: 10px;
+    transition: all .3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: space-around;
+    padding: 20px;
+    flex-wrap: wrap;
 }
 
+.book:hover {
+    transform: scale(1.02);
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 8px 0px;
+    transition: all .3s ease-in-out;
+}
+
+.book-title {
+    font-size: 22px;
+    color: #292727;
+    font-weight: 800;
+    padding-bottom: 15px;
+}
+
+.author{
+    font-size: 18px;
+    font-weight: 600;
+    color: #2e2e2e;
+    padding-bottom: 15px;
+}
+
+.book-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.type-of-genre, .n-pages{
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.genre, .pages{
+    font-weight: 300;
+}
+
+.books-count_text {
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+    text-align: center;
+}
+
+#deleteBook {
+  background-color: rgb(240, 240, 240);
+  color: #3a3a3a;
+  border-radius: 8px;
+  border-width: 0;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 5px 12px;
+  text-align: center;
+  transition: all 200ms;
+  vertical-align: baseline;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-top: 5px;
+  border: 1px solid #3a3a3a;
+}
+
+#deleteBook:hover {
+    background-color: rgb(36, 35, 35);
+    color: #f8f6f6;
+}
+
+.book-info-right{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.reading-status {
+    margin-top: 10px;
+    font-size: 10px;
+    font-weight: 200;
+}
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #03b5fc;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
 
 
 
@@ -167,7 +319,6 @@ body {
 
 .footer p {
     color: white;
-    font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     font-size: 16px;
 }
