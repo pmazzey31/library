@@ -21,10 +21,49 @@
     <main class="main-content">
         <div class="library">
             <div class="books-count">
-                <p class="books-count_text">Total books: <span id="totalBooks">5</span></p>
-                <p class="books-count_text">Read: <span id="totalBooks"></span>3</p>
-                <p class="books-count_text">Not read: <span id="totalBooks">2</span></p>
+                <p class="books-count_text">Total books: <span id="totalBooks">0</span></p>
+                <p class="books-count_text">Read: <span id="totalReadBooks">0</span></p>
+                <p class="books-count_text">Not read: <span id="totalNotReadBooks">0</span></p>
                 <button id="addNewBook">+ Add new book</button>
+
+                <!-- MODAL FOR NEW BOOK -->
+                <div id="myModal" class="modal">
+                    <div class="modal-content">
+                      <form action="#" class="newBookForm">
+                        <h2 class="form-title">Add A New Book To Your Library</h2>
+                        <div class="input">
+                            <label for="newBookTitle">*Title of the book:</label>
+                            <input type="text" id="newBookTitle" name="newBookTitle" placeholder="Introduce a title..." required>
+                        </div>
+                        <div class="input">
+                            <label for="newBookAuthor">*Author of the book:</label>
+                            <input type="text" id="newBookAuthor" name="newBookAuthor" placeholder="Introduce an author..." required>
+                        </div>
+                        <div class="input">
+                            <label for="newBookPages">*Number of pages:</label>
+                            <input type="number" id="newBookPages" name="newBookPages" placeholder="Introduce number of pages..." required>
+                        </div>
+                        <div class="input">
+                            <label for="newBookGenre">*Genre of the book:</label>
+                            <input type="text" id="newBookGenre" name="newBookGenre" placeholder="Introduce genre of your book..." required>
+                        </div>
+                        <div class="input2">
+                            <label for="newBookReadingStatus">Have you read it?</label>
+                            <div class="book-info-right">
+                                <label class="switch">
+                                    <input type="checkbox" class="modalCheckbox">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="input">
+                            <button id="submitBook">Submit</button>
+                        </div>
+                      </form>
+                      <span class="closeModal">&times;</span>
+                    </div>
+                </div>
+                
             </div>
             <div class="books-container">
 
@@ -38,11 +77,11 @@
                         <div class="book-info-left">
                             <p class="type-of-genre">Genre: <span class="genre">Fiction</span></p>
                             <p class="n-pages">Number of pages: <span class="pages">254</span></p>
-                            <button id="deleteBook">Remove</button>
+                            <button class="deleteBook">Remove</button>
                         </div>
                         <div class="book-info-right">
                             <label class="switch">
-                                <input type="checkbox">
+                                <input class="bookCheckbox" type="checkbox">
                                 <span class="slider round"></span>
                             </label>
                             <p class="reading-status">Not Read</p>
@@ -55,7 +94,7 @@
     </main>
     <div class="footer-background">
         <footer class="footer">
-            <a href="https://github.com/pmazzey31"><p>Copyright © 2023 Pmazzey</p></a>
+            <a href="https://github.com/pmazzey31" target="_blank"><p>Copyright © 2023 Pmazzey</p></a>
         </footer>
     </div>
     <script src="./index.js"></script>
