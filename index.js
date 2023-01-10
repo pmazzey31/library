@@ -1,3 +1,9 @@
+
+var totalBooks = document.getElementById("totalBooks");
+var totalReadBooks = document.getElementById("totalReadBooks");
+var totalNotReadBooks = document.getElementById("totalNotReadBooks");
+var submitBook = document.getElementById("submitBook");
+
 let myLibrary = [ 
 {
     title: "El sutil arte de que te importe un caraj@",
@@ -60,14 +66,18 @@ function displayBooks(library) {
     const booksContainer = document.querySelector(".books-container");
     booksContainer.innerHTML = "";
     for(let i=0; i<library.length; i++){
-        booksContainer.innerHTML = booksContainer.innerHTML + createBook(library[i])
+        booksContainer.innerHTML = booksContainer.innerHTML + createBook(library[i], i)
     }
+    readingTextStatus();
+    deletingBooks();
+    setBooksCount();
 }
 
 
-const createBook =  (book) => {
+const createBook =  (book, i) => {
+    book.id = i;
     const newBook = `
-        <div class="book">
+        <div class="book" id="${i}">
             <div class="book-main-info">
                 <h2 class="book-title">${book.title}</h2>
                 <p class="author">${book.author}</p>
@@ -139,17 +149,16 @@ function addBookToLibrary(event) {
     const CreatingNewBook = new Book(newBookTitle.value, newBookAuthor.value, newBookPages.value, newBookGenre.value, newBookReadingStatus.checked)
     myLibrary.push(CreatingNewBook);
     displayBooks(myLibrary);
-    readingTextStatus()
+    newBookTitle.value = "";
+    newBookAuthor.value = "";
+    newBookPages.value = "";
+    newBookGenre.value = "";
+    newBookReadingStatus.checked = false;
+    modal.style.display = "none";
 };
 
 
 //CHANGE BOOKS COUNT BOX
-
-var totalBooks = document.getElementById("totalBooks");
-var totalReadBooks = document.getElementById("totalReadBooks");
-var totalNotReadBooks = document.getElementById("totalNotReadBooks");
-var submitBook = document.getElementById("submitBook");
-var deleteBook = document.querySelectorAll(".deleteBook");
 
 function setBooksCount(){
     totalBooks.textContent = `${myLibrary.length}`;
@@ -169,10 +178,17 @@ submitBook.onclick = function() {
     setBooksCount();
 };
 
-for (let i = 0; i < deleteBook.length; i++) {
-    deleteBook[i].addEventListener("click", function() {
-        setBooksCount();
-});
+//REMOVE BUTTONS FOR BOOKS
+function deletingBooks() {
+    var deleteBook = document.querySelectorAll(".deleteBook");
+    for (let i = 0; i < deleteBook.length; i++) {
+        deleteBook[i].addEventListener("click", function() {
+            var bookToRemove = document.getElementById(`${i}`);
+            bookToRemove.remove();
+            myLibrary.splice(i, 1);
+            displayBooks(myLibrary);
+    });
+    }
 }
 
 
@@ -186,11 +202,14 @@ function readingTextStatus() {
             if(myLibrary[i].readStatus === true){
                 myLibrary[i].readStatus = false;
                 readingStatus[i].textContent = "Not Read"; 
+                setBooksCount();
             } else {
                 myLibrary[i].readStatus = true;
                 readingStatus[i].textContent = "Read";
+                setBooksCount();
             }})
     }
+
 }
 
 
