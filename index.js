@@ -54,6 +54,8 @@ let myLibrary = [
 },
 ];
 
+//FUNCTION TO CREATE A NEW BOOK OBJECT FROM addBookToLibrary()
+
 function Book(title, author, pages, genre, readingStatus) {
     this.title = title;
     this.author = author;
@@ -62,6 +64,7 @@ function Book(title, author, pages, genre, readingStatus) {
     this.readStatus = readingStatus;
   }
 
+//FUNCTION TO DISPLAY THE ARRAY OF BOOKS
 function displayBooks(library) {
     const booksContainer = document.querySelector(".books-container");
     booksContainer.innerHTML = "";
@@ -73,7 +76,7 @@ function displayBooks(library) {
     setBooksCount();
 }
 
-
+//FUNCTION TO CREATE A NEW HTML BOOK TEMPLATE FOR THE DISPLAY BOOKS
 const createBook =  (book, i) => {
     book.id = i;
     const newBook = `
@@ -102,19 +105,14 @@ const createBook =  (book, i) => {
     return newBook
 }
 
-
+//CALLING FIRST displayBooks()
 displayBooks(myLibrary);
 
 
 //MODAL FOR NEW BOOK
 
-// Get the modal
 var modal = document.getElementById("myModal");
-
-// Get the button that opens the modal
 var addNewBook = document.getElementById("addNewBook");
-
-// Get the <span> element that closes the modal
 var closeModal = document.getElementsByClassName("closeModal")[0];
 
 // When the user clicks on the button, open the modal
@@ -143,7 +141,7 @@ var newBookGenre = document.querySelector("#newBookGenre");
 var newBookReadingStatus = document.querySelector(".modalCheckbox");
 newBookForm.addEventListener('submit', addBookToLibrary);
 
-
+//FUNCTION TO CREATE A NEW BOOK OBJECT PUSH TO myLibrary AND A NEW HTML BOOK TEMPLATE FOR displayBooks() THEN RESET THE MODAL STATUS AND MAKE THE MODAL display:none
 function addBookToLibrary(event) {
     event.preventDefault();
     const CreatingNewBook = new Book(newBookTitle.value, newBookAuthor.value, newBookPages.value, newBookGenre.value, newBookReadingStatus.checked)
@@ -158,7 +156,7 @@ function addBookToLibrary(event) {
 };
 
 
-//CHANGE BOOKS COUNT BOX
+//CHANGE BOOKS COUNT BOX - TOTAL BOOKS - READ - NOT READ
 
 function setBooksCount(){
     totalBooks.textContent = `${myLibrary.length}`;
@@ -178,7 +176,7 @@ submitBook.onclick = function() {
     setBooksCount();
 };
 
-//REMOVE BUTTONS FOR BOOKS
+//REMOVE BUTTONS INSIDE BOOKS FOR DELETING THE BOOK FROM THE HTML AND myLibrary array
 function deletingBooks() {
     var deleteBook = document.querySelectorAll(".deleteBook");
     for (let i = 0; i < deleteBook.length; i++) {
@@ -192,7 +190,7 @@ function deletingBooks() {
 }
 
 
-//CHECKBOX TEXT STATUS
+//MODIFY CHECKBOX STATUS AND TEXT - READ - NOT READ
 function readingTextStatus() {
     var checkbox = document.querySelectorAll(".bookCheckbox");
     var readingStatus = document.querySelectorAll(".reading-status");
